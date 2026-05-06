@@ -3,124 +3,432 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio | Senior SRE & DevOps Architect</title>
+    <title>Punit Grewal | Senior SRE & DevOps Architect</title>
     <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
+        :root {
+            --bg-dark: #0f172a;
+            --bg-card: #1e293b;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --accent: #38bdf8;
+            --accent-hover: #0284c7;
+            --border: #334155;
+        }
+
+        * {
             margin: 0;
             padding: 0;
-            background-color: #f4f4f9;
-            color: #333;
+            box-sizing: border-box;
         }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header / Hero Section */
         header {
-            background: #2c3e50;
-            color: #fff;
-            padding: 2rem 0;
+            padding: 80px 0 40px;
+            border-bottom: 1px solid var(--border);
             text-align: center;
         }
-        header h1 {
-            margin: 0;
-            font-size: 2.5rem;
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            color: var(--text-main);
         }
-        header p {
-            font-size: 1.2rem;
-            color: #1abc9c;
+
+        .subtitle {
+            font-size: 1.25rem;
+            color: var(--accent);
+            margin-bottom: 20px;
+            font-weight: 500;
         }
-        .container {
-            max-width: 900px;
-            margin: 20px auto;
-            padding: 20px;
-            background: #fff;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-            border-radius: 8px;
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            color: var(--text-muted);
+            font-size: 0.95rem;
         }
+
+        .contact-info a {
+            color: var(--accent);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .contact-info a:hover {
+            color: var(--accent-hover);
+        }
+
+        /* Sections */
+        section {
+            padding: 50px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        section:last-child {
+            border-bottom: none;
+        }
+
         h2 {
-            border-bottom: 2px solid #1abc9c;
-            padding-bottom: 5px;
-            color: #2c3e50;
+            font-size: 2rem;
+            margin-bottom: 30px;
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
+
+        h2::before {
+            content: "/>";
+            color: var(--accent);
+            font-family: monospace;
+        }
+
+        p {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+        }
+
+        /* Skills Pill Tags */
         .skills-grid {
             display: flex;
             flex-wrap: wrap;
-            gap: 10px;
+            gap: 12px;
         }
+
         .skill-tag {
-            background: #ecf0f1;
-            padding: 5px 15px;
+            background-color: var(--bg-card);
+            border: 1px solid var(--border);
+            color: var(--text-main);
+            padding: 8px 16px;
             border-radius: 20px;
             font-size: 0.9rem;
+            font-weight: 500;
+            transition: border-color 0.2s;
+        }
+
+        .skill-tag:hover {
+            border-color: var(--accent);
+        }
+
+        /* Experience Cards */
+        .job-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 25px;
+        }
+
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .job-title {
+            font-size: 1.3rem;
+            color: var(--text-main);
+        }
+
+        .job-company {
+            color: var(--accent);
+            font-weight: 500;
+            font-size: 1.1rem;
+        }
+
+        .job-date {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            background: rgba(255,255,255,0.05);
+            padding: 4px 12px;
+            border-radius: 15px;
+        }
+
+        .job-bullets {
+            list-style-type: none;
+            margin-top: 15px;
+        }
+
+        .job-bullets li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 12px;
+            color: var(--text-muted);
+        }
+
+        .job-bullets li::before {
+            content: "▹";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+        }
+
+        /* Certifications & Education */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .cert-card {
+            background: var(--bg-card);
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid var(--accent);
+        }
+
+        .cert-title {
             font-weight: bold;
-            color: #34495e;
-        }
-        .project {
-            margin-bottom: 20px;
-        }
-        .project h3 {
+            color: var(--text-main);
             margin-bottom: 5px;
-            color: #2980b9;
         }
-        a {
-            color: #1abc9c;
-            text-decoration: none;
+
+        .cert-issuer {
+            color: var(--text-muted);
+            font-size: 0.9rem;
         }
-        a:hover {
-            text-decoration: underline;
+
+        footer {
+            text-align: center;
+            padding: 30px 0;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 600px) {
+            h1 { font-size: 2.2rem; }
+            .job-header { flex-direction: column; }
+            header { padding: 50px 0 30px; }
         }
     </style>
 </head>
 <body>
 
     <header>
-        <h1>Your Name</h1>
-        <p>Senior SRE | DevOps Architect | Platform Engineer</p>
+        <div class="container">
+            <h1>Punit Grewal</h1>
+            <div class="subtitle">Senior SRE | DevOps Architect | Platform Engineer</div>
+            <div class="contact-info">
+                <span>Noida, UP, 201301</span> |
+                <span>+91 920-506-5150</span> |
+                <a href="mailto:punit144@zohomail.com">punit144@zohomail.com</a> |
+                <a href="https://www.linkedin.com/in/punit144/" target="_blank">LinkedIn Profile</a>
+            </div>
+        </div>
     </header>
 
     <div class="container">
+        <!-- Professional Summary -->
         <section id="about">
-            <h2>About Me</h2>
-            <p>I am a highly accomplished Senior SRE and DevOps Architect with over 12.5 years of experience designing, implementing, and optimizing robust, cloud-native infrastructure. My core focus is driving SRE principles to achieve 99.99% service availability and optimizing compute costs across AWS, Azure, GCP, and OCI.</p>
+            <h2>Professional Summary</h2>
+            <p>Highly accomplished Senior SRE and DevOps Architect with 12.5 years of extensive experience in designing, implementing, and optimizing robust, cloud-native infrastructure across AWS, Azure, OCI, and GCP. Proven expertise in Kubernetes, Terraform, Ansible, and CI/CD pipelines, driving Site Reliability Engineering principles to achieve 99.99% service availability and significant cost reductions. Adept at implementing advanced Cloud Security measures, Monitoring and Alerting systems, and Disaster Recovery strategies to ensure resilient and scalable platforms in high-demand environments. Recognized for exceptional Infrastructure Automation skills and a proactive approach to problem-solving.</p>
         </section>
 
+        <!-- Technical Skills -->
         <section id="skills">
-            <h2>Core Technologies</h2>
+            <h2>Technical Skills</h2>
             <div class="skills-grid">
-                <span class="skill-tag">Kubernetes (CKA)</span>
+                <span class="skill-tag">Kubernetes (K8s)</span>
                 <span class="skill-tag">Terraform</span>
                 <span class="skill-tag">Ansible</span>
-                <span class="skill-tag">AWS / Azure / OCI</span>
-                <span class="skill-tag">Istio Service Mesh</span>
-                <span class="skill-tag">Docker / Helm / ArgoCD</span>
-                <span class="skill-tag">Prometheus / Grafana</span>
-                <span class="skill-tag">GitHub Actions / Jenkins</span>
+                <span class="skill-tag">AWS</span>
+                <span class="skill-tag">Azure</span>
+                <span class="skill-tag">GCP</span>
+                <span class="skill-tag">Oracle Cloud (OCI)</span>
+                <span class="skill-tag">Docker</span>
+                <span class="skill-tag">Helm</span>
+                <span class="skill-tag">ArgoCD</span>
+                <span class="skill-tag">Istio</span>
+                <span class="skill-tag">GitHub Actions</span>
+                <span class="skill-tag">Git</span>
+                <span class="skill-tag">Python</span>
+                <span class="skill-tag">Bash</span>
+                <span class="skill-tag">Prometheus</span>
+                <span class="skill-tag">Grafana</span>
+                <span class="skill-tag">New Relic</span>
+                <span class="skill-tag">AWS CDK</span>
+                <span class="skill-tag">CloudFormation</span>
+                <span class="skill-tag">Chef</span>
+                <span class="skill-tag">Linux (Ubuntu, CentOS, RHEL)</span>
+                <span class="skill-tag">OpenShift</span>
+                <span class="skill-tag">NetApp ONTAP</span>
+                <span class="skill-tag">ServiceNow</span>
+                <span class="skill-tag">JIRA</span>
             </div>
         </section>
 
+        <!-- Professional Experience -->
         <section id="experience">
-            <h2>Key Achievements</h2>
-            <div class="project">
-                <h3>Cloud Infrastructure Automation</h3>
-                <p>Automated provisioning of 200+ AWS resources using Terraform and Ansible, improving delivery speed by 40% and reducing manual configuration errors by 95%.</p>
+            <h2>Professional Experience</h2>
+
+            <!-- Job 1 -->
+            <div class="job-card">
+                <div class="job-header">
+                    <div>
+                        <div class="job-title">Associate Consultant</div>
+                        <div class="job-company">HCL Tech</div>
+                    </div>
+                    <div class="job-date">Jun 2021 - Present</div>
+                </div>
+                <ul class="job-bullets">
+                    <li>Automated provisioning of 200+ AWS resources (EC2, EKS, RDS, Lambda, IAM) using Terraform and Ansible, improving infrastructure delivery speed by 40% and reducing manual configuration errors by 95%.</li>
+                    <li>Created and maintained robust GitHub Actions and Jenkins CI/CD pipelines for deploying Dockerized microservices on EKS across dev, staging, and production environments, reducing deployment time by 50%.</li>
+                    <li>Engineered dynamic autoscaling strategies using Karpenter and Kubernetes HPA/VPA, optimizing cluster resource utilization and reducing monthly compute costs by 25% while successfully handling burst traffic loads exceeding 300%.</li>
+                    <li>Implemented Istio Service Mesh to enforce strict mTLS security and granular traffic splitting, enabling secure Canary deployments and end-to-end observability across 50+ microservices, improving incident detection time by 40%.</li>
+                    <li>Designed scalable Infrastructure as Code (IaC) using Terraform modules, enabling reusable and version-controlled deployments, reducing deployment time for new services by 30%.</li>
+                    <li>Led secret management implementation on Kubernetes using HashiCorp Vault and External Secrets Operator, improving security posture and auditability, reducing critical security vulnerabilities by 80%.</li>
+                    <li>Built comprehensive monitoring dashboards with Prometheus and Grafana, delivering real-time infrastructure health insights and reducing Mean Time To Recovery (MTTR) by 30% for critical incidents.</li>
+                    <li>Architected multi-region High Availability (HA) and Disaster Recovery (DR) infrastructure on AWS and Azure with automated failover testing, ensuring 99.99% service availability and reducing RTO by 75%.</li>
+                    <li>Integrated policy-as-code (OPA/Gatekeeper & Sentinel) into CI/CD workflows, preventing non-compliant Kubernetes and Terraform deployments before production, reducing deployment failures by 60%.</li>
+                    <li>Migrated monolithic workloads to Kubernetes microservices using Helm and ArgoCD, introducing GitOps workflows and reducing release cycle time by 60%, enabling faster feature delivery.</li>
+                </ul>
             </div>
-            <div class="project">
-                <h3>Cost Optimization & Scaling</h3>
-                <p>Engineered dynamic autoscaling using Karpenter and HPA/VPA, reducing monthly compute costs by 25% while seamlessly handling 300% burst traffic loads.</p>
+
+            <!-- Job 2 -->
+            <div class="job-card">
+                <div class="job-header">
+                    <div>
+                        <div class="job-title">Cloud Deployment Engineer</div>
+                        <div class="job-company">Oracle Solutions Private Limited</div>
+                    </div>
+                    <div class="job-date">Jun 2020 - Jun 2021</div>
+                </div>
+                <ul class="job-bullets">
+                    <li>Automated provisioning of 150+ Oracle Cloud Infrastructure (OCI) resources using Ansible, reducing manual effort by 50% and deployment time by 60%.</li>
+                    <li>Developed Python-based automation scripts and integrated OCI SDKs to manage lifecycle of cloud infrastructure and resource scaling, improving operational efficiency by 40%.</li>
+                    <li>Designed and implemented reusable Ansible roles to standardize resource creation across multiple client environments, improving deployment consistency and reducing configuration drift by 85%.</li>
+                    <li>Implemented CI/CD pipelines for OCI deployment validation using GitHub and Jenkins, enabling faster delivery cycles and automated rollback strategies.</li>
+                    <li>Designed hybrid secrets management architecture combining AWS KMS, Vault, and Kubernetes External Secrets for multi-cloud workloads, enhancing security posture and reducing exposure by 70%.</li>
+                    <li>Implemented cost-optimization strategies via automation dynamically scaling clusters, leveraging Spot Instances, and automating idle resource cleanup, reducing cloud spend by 25% annually.</li>
+                </ul>
             </div>
-            <div class="project">
-                <h3>Security & Observability</h3>
-                <p>Implemented Istio for strict mTLS security and built complete monitoring pipelines with Prometheus and Grafana, reducing MTTR by 30%.</p>
+
+            <!-- Job 3 -->
+            <div class="job-card">
+                <div class="job-header">
+                    <div>
+                        <div class="job-title">Cloud Infrastructure Engineer</div>
+                        <div class="job-company">Accenture Solutions</div>
+                    </div>
+                    <div class="job-date">Jan 2018 - Jun 2020</div>
+                </div>
+                <ul class="job-bullets">
+                    <li>Managed and supported Azure infrastructure including Virtual Machines, AKS, VNets, Load Balancers, and ExpressRoute for 5+ enterprise clients, ensuring 99.95% uptime.</li>
+                    <li>Built automation scripts using Azure CLI and PowerShell to provision and manage Azure resources, reducing manual intervention by 60% and deployment time by 50%.</li>
+                    <li>Led Azure cost optimization initiatives using Azure Advisor and Reservations, resulting in 15-20 Lakhs (approx. $20,000-$26,000 USD) annual savings for clients.</li>
+                    <li>Established release governance framework with progressive delivery (Argo Rollouts, canary/blue-green), automated rollbacks, and pre/post-deployment analysis templates, reducing deployment risks by 40%.</li>
+                    <li>Supported hybrid cloud integrations with VMware and NetApp FlexPod for secure private cloud setups, ensuring seamless data flow and connectivity.</li>
+                </ul>
+            </div>
+
+            <!-- Job 4 -->
+            <div class="job-card">
+                <div class="job-header">
+                    <div>
+                        <div class="job-title">ITO Service Delivery Consultant</div>
+                        <div class="job-company">Hewlett Packard Enterprise, DXC Technologies</div>
+                    </div>
+                    <div class="job-date">Jul 2016 - Jan 2018</div>
+                </div>
+                <ul class="job-bullets">
+                    <li>Administered and maintained NetApp ONTAP storage systems in hybrid cloud environments, supporting over 500TB of data.</li>
+                    <li>Automated LUN creation, snapshot scheduling, and replication workflows using shell scripts and APIs, reducing storage provisioning time by 70%.</li>
+                    <li>Designed Disaster Recovery (DR) strategies and performed recovery testing using NetApp SnapMirror and SnapVault, ensuring RTO within 4 hours for critical data.</li>
+                    <li>Implemented CI/CD for infrastructure scripts, reducing the time to deploy storage configurations by 50%.</li>
+                </ul>
+            </div>
+
+            <!-- Job 5 -->
+            <div class="job-card">
+                <div class="job-header">
+                    <div>
+                        <div class="job-title">Senior Analyst</div>
+                        <div class="job-company">HCL Technologies</div>
+                    </div>
+                    <div class="job-date">Nov 2013 - Jun 2016</div>
+                </div>
+                <ul class="job-bullets">
+                    <li>Delivered Level 2-3 support for NetApp Storage Systems including disk upgrades, LUN allocations, and firmware updates for a Fortune 500 client.</li>
+                    <li>Led system integration of NetApp with Linux-based platforms across enterprise infrastructure, ensuring seamless data access and performance.</li>
+                    <li>Utilized ServiceNow to manage incidents, changes, and P1 escalations with strict SLA compliance, achieving a 98% SLA adherence rate.</li>
+                    <li>Recognized with "Performance of the Year" award from Fortune 500 client J&J for outstanding support delivery and exceeding client expectations.</li>
+                </ul>
             </div>
         </section>
 
-        <section id="contact">
-            <h2>Connect With Me</h2>
-            <p>
-                Email: <a href="mailto:your.email@example.com">your.email@example.com</a> <br>
-                LinkedIn: <a href="https://linkedin.com/in/yourprofile" target="_blank">linkedin.com/in/yourprofile</a> <br>
-                GitHub: <a href="https://github.com/yourusername" target="_blank">github.com/yourusername</a>
-            </p>
+        <!-- Certifications -->
+        <section id="certifications">
+            <h2>Certifications</h2>
+            <div class="grid-2">
+                <div class="cert-card">
+                    <div class="cert-title">CKA: Certified Kubernetes Administrator</div>
+                    <div class="cert-issuer">Cloud Native Computing Foundation (CNCF) • Jan 2022</div>
+                </div>
+                <div class="cert-card">
+                    <div class="cert-title">Azure Solutions Architect Expert [AZ-305]</div>
+                    <div class="cert-issuer">Microsoft • Jan 2021</div>
+                </div>
+                <div class="cert-card">
+                    <div class="cert-title">Google Cloud Certified Associate</div>
+                    <div class="cert-issuer">Google Cloud • Jan 2021</div>
+                </div>
+                <div class="cert-card">
+                    <div class="cert-title">Azure Developer (AZ-204)</div>
+                    <div class="cert-issuer">Microsoft • Jan 2020</div>
+                </div>
+                <div class="cert-card">
+                    <div class="cert-title">Azure Administrator (AZ-104)</div>
+                    <div class="cert-issuer">Microsoft • Jan 2020</div>
+                </div>
+                <div class="cert-card">
+                    <div class="cert-title">Oracle Cloud Associate Architect Certified</div>
+                    <div class="cert-issuer">Oracle • Jan 2020</div>
+                </div>
+                <div class="cert-card">
+                    <div class="cert-title">NS0-508 NetApp Certified Implementation Engineer</div>
+                    <div class="cert-issuer">NetApp • Jan 2017</div>
+                </div>
+            </div>
         </section>
+
+        <!-- Education -->
+        <section id="education">
+            <h2>Education</h2>
+            <div class="job-card">
+                <div class="job-header" style="margin-bottom: 0;">
+                    <div>
+                        <div class="job-title">Bachelor's Degree in Electronics & Communication</div>
+                        <div class="job-company">Chitkara University</div>
+                    </div>
+                    <div class="job-date">Aug 2009 - Jul 2013</div>
+                </div>
+            </div>
+        </section>
+
     </div>
+
+    <footer>
+        <p>&copy; 2026 Punit Grewal. Designed for GitHub Pages.</p>
+    </footer>
 
 </body>
 </html>
